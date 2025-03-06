@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -36,8 +37,15 @@ export default function Header() {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-extrabold text-blue-600">
-          DDS Consulting
+        <Link href="/">
+          <Image
+            src="/logo2.png" 
+            alt="DDS Consulting Logo"
+            width={160} // Adjust based on design
+            height={40} 
+            className="cursor-pointer rounded-md"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -90,8 +98,15 @@ export default function Header() {
         }`}
       >
         <div className="flex justify-between items-center p-5 border-b">
-          <Link href="/" className="text-xl font-bold text-blue-600">
-            DDS Consulting
+          <Link href="/">
+            <Image
+              src="/logo.png"
+              alt="DDS Consulting Logo"
+              width={140}
+              height={35}
+              className="cursor-pointer"
+              priority
+            />
           </Link>
           <button onClick={() => setIsOpen(false)} className="text-gray-700">
             <X size={28} />
